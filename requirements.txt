@@ -1,0 +1,4 @@
+duckdb>=1.5
+anthropic>=0.84
+streamlit>=1.57
+pandas
