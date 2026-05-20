@@ -54,15 +54,10 @@ st.markdown("""
         padding: 1rem;
     }
     /* Override red focus border on chat input */
-    .stChatInput textarea:focus,
-    .stChatInput textarea:focus-visible,
-    .stChatInput div:focus-within {
+    .stChatInput * {
         border-color: #4a90d9 !important;
-        box-shadow: 0 0 0 1px #4a90d9 !important;
+        box-shadow: none !important;
         outline: none !important;
-    }
-    .stChatInput textarea {
-        border-color: #d1d5db !important;
     }
 </style>
 """, unsafe_allow_html=True)
