@@ -30,22 +30,27 @@ st.set_page_config(
 # --- Custom styling ---
 st.markdown("""
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+
     .main-header {
+        font-family: Georgia, 'Times New Roman', serif;
         font-size: 2rem;
-        font-weight: 700;
+        font-weight: 400;
+        color: #0c1d3a;
         margin-bottom: 0.2rem;
+        letter-spacing: -0.02em;
     }
     .sub-header {
-        font-size: 1.1rem;
-        color: #666;
+        font-size: 1.05rem;
+        color: #475a73;
         margin-bottom: 2rem;
     }
     .sql-box {
-        background-color: #f8f9fa;
-        border: 1px solid #e1e4e8;
+        background-color: #eef2fa;
+        border: 1px solid #c4d2e7;
         border-radius: 6px;
         padding: 12px;
-        font-family: 'SF Mono', 'Fira Code', monospace;
+        font-family: 'DM Mono', 'SF Mono', 'Fira Code', monospace;
         font-size: 0.85rem;
         white-space: pre-wrap;
         margin: 0.5rem 0;
@@ -53,9 +58,22 @@ st.markdown("""
     .stChatMessage {
         padding: 1rem;
     }
-    /* Override red focus border on chat input */
+    .stMainBlockContainer {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 2rem 2rem 1rem;
+    }
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 {
+        font-family: Georgia, 'Times New Roman', serif;
+        color: #0c1d3a;
+    }
+    hr {
+        border-color: #c4d2e7;
+    }
     .stChatInput * {
-        border-color: #4a90d9 !important;
+        border-color: #1d3fb8 !important;
         box-shadow: none !important;
         outline: none !important;
     }
