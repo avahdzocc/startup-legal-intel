@@ -39,7 +39,8 @@ st.markdown("""
         color: #0c1d3a;
         margin-bottom: 0.3rem;
         letter-spacing: -0.02em;
-        line-height: 1.15;
+        line-height: 1.2;
+        padding-top: 0.5rem;
     }
     .sub-header {
         font-family: 'DM Mono', 'SF Mono', monospace;
