@@ -7,6 +7,14 @@ A natural language interface for querying SEC filing data, built for startup law
 ![Python](https://img.shields.io/badge/python-3.10+-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+## Try It
+
+The live demo is available now — no setup required:
+
+**[startup-legal-intel-8cg6w7f79bg7jwbg6xai6s.streamlit.app](https://startup-legal-intel-8cg6w7f79bg7jwbg6xai6s.streamlit.app/)**
+
+Ask any question about SEC filings in plain English. The tool translates it to SQL, queries 600K+ filings, and returns a plain-English summary with the generated query and raw data.
+
 ## What It Does
 
 This tool lets a startup lawyer query 600K+ SEC Form D filings and 68K S-1 registrations using natural language. It translates questions into SQL, executes them against a local DuckDB database, and returns plain-English summaries with legal context.
@@ -59,9 +67,11 @@ User Question (natural language)
 | S1Filings | [EDGAR Full Index](https://www.sec.gov/Archives/edgar/full-index/) | 68K | IPO registration statements (S-1/F-1) |
 | PublicCompanies | [EDGAR Company Tickers](https://www.sec.gov/files/company_tickers_exchange.json) | 10K | Currently traded companies with ticker and exchange |
 
-## Setup
+## Development Setup
 
-### Prerequisites
+The following instructions are for rebuilding the tool locally. To use the deployed app, visit the [live demo](https://startup-legal-intel-8cg6w7f79bg7jwbg6xai6s.streamlit.app/) above.
+
+### Prerequisites (local development only)
 - Python 3.10+
 - An Anthropic API key ([console.anthropic.com](https://console.anthropic.com))
 - Raw SEC data files (see Data Preparation below)
