@@ -34,40 +34,72 @@ st.markdown("""
 
     .main-header {
         font-family: Georgia, 'Times New Roman', serif;
-        font-size: 2rem;
+        font-size: 2.6rem;
         font-weight: 400;
         color: #0c1d3a;
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.3rem;
         letter-spacing: -0.02em;
+        line-height: 1.15;
     }
     .sub-header {
-        font-size: 1.05rem;
+        font-family: 'DM Mono', 'SF Mono', monospace;
+        font-size: 0.78rem;
         color: #475a73;
-        margin-bottom: 2rem;
+        letter-spacing: 0.02em;
+        margin-bottom: 2.5rem;
     }
     .sql-box {
         background-color: #eef2fa;
         border: 1px solid #c4d2e7;
-        border-radius: 6px;
+        border-radius: 4px;
         padding: 12px;
         font-family: 'DM Mono', 'SF Mono', 'Fira Code', monospace;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         white-space: pre-wrap;
         margin: 0.5rem 0;
     }
     .stChatMessage {
-        padding: 1rem;
+        padding: 1rem 0;
+        background-color: transparent !important;
     }
     .stMainBlockContainer {
-        background-color: #ffffff;
-        border-radius: 8px;
-        padding: 2rem 2rem 1rem;
+        background-color: transparent;
+        padding: 2rem 3rem 1rem;
     }
     [data-testid="stSidebar"] h1,
     [data-testid="stSidebar"] h2,
     [data-testid="stSidebar"] h3 {
-        font-family: Georgia, 'Times New Roman', serif;
-        color: #0c1d3a;
+        font-family: 'DM Mono', monospace !important;
+        font-size: 0.7rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #475a73 !important;
+        font-weight: 500;
+    }
+    [data-testid="stSidebar"] p {
+        font-size: 0.88rem;
+        line-height: 1.55;
+    }
+    [data-testid="stSidebar"] button {
+        text-align: left !important;
+        border: none !important;
+        border-left: 2px solid #c4d2e7 !important;
+        border-radius: 0 !important;
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.85rem;
+        background-color: transparent !important;
+        color: #0c1d3a !important;
+    }
+    [data-testid="stSidebar"] button:hover {
+        border-left-color: #1d3fb8 !important;
+        background-color: rgba(29, 63, 184, 0.04) !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] a {
+        color: #1d3fb8;
+        text-decoration: none;
+    }
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] a:hover {
+        text-decoration: underline;
     }
     hr {
         border-color: #c4d2e7;
@@ -76,6 +108,16 @@ st.markdown("""
         border-color: #1d3fb8 !important;
         box-shadow: none !important;
         outline: none !important;
+    }
+    [data-testid="stExpander"] {
+        border: 1px solid #c4d2e7 !important;
+        border-radius: 4px !important;
+        background-color: #eef2fa !important;
+    }
+    [data-testid="stCode"] pre {
+        font-family: 'DM Mono', 'SF Mono', 'Fira Code', monospace;
+        font-size: 0.82rem;
+        background-color: #eef2fa !important;
     }
 </style>
 """, unsafe_allow_html=True)
