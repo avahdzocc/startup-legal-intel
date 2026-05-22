@@ -322,11 +322,14 @@ def query(question, history=None):
         return {"sql": None, "columns": [], "rows": [], "summary": None,
                 "error": f"Failed to generate SQL: {e}"}
 
-    # Step 2: Execute (with basic safety check)
-    sql_upper = sql.upper().strip()
-    if any(sql_upper.startswith(kw) for kw in ["INSERT", "UPDATE", "DELETE", "DROP", "ALTER", "CREATE"]):
+    # Step 2: Execute (with safety checks)
+    import re
+    sql_stripped = re.sub(r'--.*$', '', sql, flags=re.MULTILINE).strip()
+    sql_upper = sql_stripped.upper()
+    blocked = ["INSERT", "UPDATE", "DELETE", "DROP", "ALTER", "CREATE", "ATTACH", "COPY", "EXPORT", "IMPORT", "LOAD"]
+    if any(kw in sql_upper for kw in blocked) or ";" in sql_stripped:
         return {"sql": sql, "columns": [], "rows": [], "summary": None,
-                "error": "Safety check: only SELECT queries are allowed."}
+                "error": "Safety check: only single SELECT queries are allowed."}
 
     try:
         columns, rows = execute_sql(sql)

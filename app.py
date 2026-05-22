@@ -6,6 +6,7 @@ Usage:
     streamlit run app.py
 """
 
+import time
 import streamlit as st
 import sys
 from pathlib import Path
@@ -13,6 +14,9 @@ from pathlib import Path
 # Add scripts directory to path so we can import the translator
 sys.path.insert(0, str(Path(__file__).parent / "scripts"))
 from ai_translator_module import query
+
+MAX_QUERIES_PER_SESSION = 30
+MAX_QUESTION_LENGTH = 500
 
 
 def escape_dollars(text):
@@ -188,6 +192,19 @@ if chat_input:
     prompt = chat_input
 
 if prompt:
+    if "query_count" not in st.session_state:
+        st.session_state.query_count = 0
+
+    if st.session_state.query_count >= MAX_QUERIES_PER_SESSION:
+        st.error("You've reached the query limit for this session. Please refresh to start a new session.")
+        st.stop()
+
+    if len(prompt) > MAX_QUESTION_LENGTH:
+        st.warning(f"Question is too long (max {MAX_QUESTION_LENGTH} characters). Please shorten it.")
+        st.stop()
+
+    st.session_state.query_count += 1
+
     # Display user message
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
